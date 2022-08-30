@@ -1,117 +1,123 @@
 {
-    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "blocks": [
-      {
-        "alignment": "left",
-        "segments": [
-          {
-            "background": "#c386f1",
-            "foreground": "#ffffff",
-            "leading_diamond": "\ue0b6",
-            "properties": {
-              "display_user": false
-            },
-            "style": "diamond",
-            "template": " 💻 {{ if .SSHSession }}\uf817 {{ end }}{{ .HostName }} ",
-            "type": "session"
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#c386f1",
+          "foreground": "#ffffff",
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}",
+          "type": "os"
+        },
+        {
+          "background": "#c386f1",
+          "foreground": "#ffffff",
+          "properties": {
+            "display_user": false
           },
-          {
-            "background": "#f36943",
-            "background_templates": [
-              "{{ if eq \"Full\" .State.String }}#4caf50{{ end }}",
-              "{{ if eq \"Charging\" .State.String }}#40c4ff{{ end }}",
-              "{{ if eq \"Discharging\" .State.String }}#f7681b{{ end }}"
-            ],
-            "foreground": "#193549",
-            "powerline_symbol": "\ue0b0",
-            "style": "diamond",
-            "template": " 🔋 {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}\uf295 ",
-            "trailing_diamond": "\ue0b0",
-            "type": "battery"
+          "style": "diamond",
+          "template": " 💻 {{ if .SSHSession }}\uf817 {{ end }}{{ .HostName }} ",
+          "type": "session"
+        },
+        {
+          "background": "#f36943",
+          "background_templates": [
+            "{{ if eq \"Full\" .State.String }}#4caf50{{ end }}",
+            "{{ if eq \"Charging\" .State.String }}#40c4ff{{ end }}",
+            "{{ if eq \"Discharging\" .State.String }}#f7681b{{ end }}"
+          ],
+          "foreground": "#193549",
+          "powerline_symbol": "\ue0b0",
+          "style": "diamond",
+          "template": " 🔋 {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}\uf295 ",
+          "trailing_diamond": "\ue0b0",
+          "type": "battery"
+        },
+        {
+          "background": "#ff479c",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "style": "folder"
           },
-          {
-            "background": "#ff479c",
-            "foreground": "#ffffff",
-            "powerline_symbol": "\ue0b0",
-            "properties": {
-              "style": "folder"
-            },
-            "style": "powerline",
-            "template": " 📁 {{ .Path }} ",
-            "type": "path"
+          "style": "powerline",
+          "template": " 📁 {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "background": "#fffb38",
+          "foreground": "#193549",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
           },
-          {
-            "background": "#fffb38",
-            "foreground": "#193549",
-            "powerline_symbol": "\ue0b0",
-            "properties": {
-              "fetch_stash_count": true,
-              "fetch_status": true,
-              "fetch_upstream_icon": true
-            },
-            "style": "powerline",
-            "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} 📝 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \u2705{{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} 💾 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
-            "type": "git"
+          "style": "powerline",
+          "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} 📝 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \u2705{{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} 💾 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "background": "#6CA35E",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "type": "node"
+        },
+        {
+          "background": "#00ffff",
+          "foreground": "#000000",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
+          "type": "dotnet"
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#100e23",
+          "background": "#906cff",
+          "template": " \uE235 {{ .Full }} "
+        },
+        {
+          "background": "#ffff66",
+          "foreground": "#193549",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \uf0e7 ",
+          "type": "root"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "background": "#25d5db",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#f1184c{{ end }}"
+          ],
+          "foreground": "#ffffff",
+          "leading_diamond": "\ue0b6",
+          "properties": {
+            "always_enabled": true
           },
-          {
-            "background": "#6CA35E",
-            "foreground": "#ffffff",
-            "powerline_symbol": "\ue0b0",
-            "style": "powerline",
-            "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
-            "type": "node"
-          },
-          {
-            "background": "#00ffff",
-            "foreground": "#000000",
-            "powerline_symbol": "\ue0b0",
-            "style": "powerline",
-            "template": " \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
-            "type": "dotnet"
-          },
-          {
-            "type": "python",
-            "style": "powerline",
-            "powerline_symbol": "\uE0B0",
-            "foreground": "#100e23",
-            "background": "#906cff",
-            "template": " \uE235 {{ .Full }} "
-          },
-          {
-            "background": "#ffff66",
-            "foreground": "#193549",
-            "powerline_symbol": "\ue0b0",
-            "style": "powerline",
-            "template": " \uf0e7 ",
-            "type": "root"
-          }
-        ],
-        "type": "prompt"
-      },
-      {
-        "alignment": "left",
-        "newline": true,
-        "segments": [
-          {
-            "background": "#25d5db",
-            "background_templates": [
-              "{{ if gt .Code 0 }}#f1184c{{ end }}"
-            ],
-            "foreground": "#ffffff",
-            "leading_diamond": "\ue0b6",
-            "properties": {
-              "always_enabled": true
-            },
-            "style": "diamond",
-            "template": " {{ if gt .Code 0 }}😱{{ else }}😎{{ end }} ",
-            "trailing_diamond": "\ue0b0",
-            "type": "exit"
-          }
-        ],
-        "type": "prompt"
-      }
-    ],
-    "final_space": true,
-    "version": 2
-  }
-  
+          "style": "diamond",
+          "template": " {{ if gt .Code 0 }}😱{{ else }}😎{{ end }} ",
+          "trailing_diamond": "\ue0b0",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
