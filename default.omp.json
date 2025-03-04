@@ -77,9 +77,25 @@
           "type": "dotnet"
         },
         {
+          "type": "go",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#7FD5EA",
+          "template": " \ue627 {{ .Full }} "
+        },
+        {
+          "type": "elixir",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#422251",
+          "template": " \ue62d {{ .Full }} "
+        },
+        {
           "type": "python",
           "style": "powerline",
-          "powerline_symbol": "\uE0B0",
+          "powerline_symbol": "\ue0b0",
           "foreground": "#100e23",
           "background": "#906cff",
           "template": " \uE235 {{ .Full }} "
@@ -112,7 +128,7 @@
           "style": "diamond",
           "template": " {{ if gt .Code 0 }}😱{{ else }}😎{{ end }} ",
           "trailing_diamond": "\ue0b0",
-          "type": "exit"
+          "type": "status"
         }
       ],
       "type": "prompt"
