@@ -1,8 +1,14 @@
-# 🎨 Temas do Oh My Posh
+# 🎨 Oh My Posh Themes
 
-Este repositório contém os temas que normalmente uso no [Oh My Posh](https://ohmyposh.dev).
+This repository contains the themes I usually use with [Oh My Posh](https://ohmyposh.dev).
 
-Ele é utilizado nos meus repositórios de configurações do Powershell Core e do ZSH:
+## Usage
+
+It's used in my configuration repositories for Powershell Core and ZSH:
 
 - [posh-config](https://github.com/cassiofariasmachado/posh-config)
 - [zsh-config](https://github.com/cassiofariasmachado/zsh-config)
+
+## References
+
+- [Oh My Posh: Themes](https://ohmyposh.dev/docs/themes)
